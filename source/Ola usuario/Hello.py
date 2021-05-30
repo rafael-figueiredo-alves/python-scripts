@@ -1,0 +1,7 @@
+print('###########################################')
+print('    #####                   #####          ')
+print('Olá, tudo bem? Meu nome é C3PO!')
+print('')
+nome = input('Qual é o seu nome? ')
+print('')
+print('Prazer em conhecer você, ', nome)
