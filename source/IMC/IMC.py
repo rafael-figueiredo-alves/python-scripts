@@ -1,3 +1,7 @@
+import os
+
+os.system('cls' if os.name == 'nt' else 'clear')
+
 print('########################################################');
 print('                 CALCULADORA DE IMC                     ');
 print('########################################################');
@@ -24,3 +28,7 @@ else:
   Resultado = 'uma baleia com obesidade grau 3, fecha essa boca pelo amor de Deus!';
 
 print('Você está ', Resultado);
+
+fim = input('\nAperte qualquer tecla para fechar o app')
+
+os.system('cls' if os.name == 'nt' else 'clear')
