@@ -1,18 +1,15 @@
-import os
+import MyFunctions
 
-def CleanConsole():
-	os.system('cls' if os.name == 'nt' else 'clear')
-
-CleanConsole()
+MyFunctions.CleanConsole()
 
 print('########################################################');
 print('                 CALCULADORA DE IMC                     ');
 print('########################################################');
 print('');
-pesostr = input('Qual é o seu peso?');
+pesostr = input('Qual é o seu peso?\n');
 peso = float(pesostr.replace(',', '.'));
 print('');
-alturastr = input('Qual é a sua altura?');
+alturastr = input('Qual é a sua altura?\n');
 altura = float(alturastr.replace(',', '.'));
 IMC = peso / (altura * altura);
 print('');
@@ -32,6 +29,6 @@ else:
 
 print('Você está ', Resultado);
 
-fim = input('\nAperte qualquer tecla para fechar o app')
+fim = input('\nAperte qualquer tecla para fechar o app\n')
 
-CleanConsole()
+MyFunctions.CleanConsole()
