@@ -1,6 +1,9 @@
 import os
 
-os.system('cls' if os.name == 'nt' else 'clear')
+def CleanConsole():
+	os.system('cls' if os.name == 'nt' else 'clear')
+
+CleanConsole()
 
 print('########################################################');
 print('                 CALCULADORA DE IMC                     ');
@@ -31,4 +34,4 @@ print('Você está ', Resultado);
 
 fim = input('\nAperte qualquer tecla para fechar o app')
 
-os.system('cls' if os.name == 'nt' else 'clear')
+CleanConsole()
