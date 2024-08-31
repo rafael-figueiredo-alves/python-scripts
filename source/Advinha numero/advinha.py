@@ -1,4 +1,7 @@
 from random import randint
+import os
+
+os.system('cls' if os.name == 'nt' else 'clear')
 
 numero = int(randint(1, 10))
 palpite = 0
