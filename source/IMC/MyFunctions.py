@@ -9,7 +9,6 @@ def InputFloat(PromptText):
 	return valor;
 
 def ShowResult(IMC):
-        Resultado = '';
 	if(IMC < 18.5):
    	  Resultado = 'abaixo do peso, esqueletinho!';
 	elif (IMC >= 18.5 and IMC <= 24.9):
@@ -23,3 +22,6 @@ def ShowResult(IMC):
 	else:
   	  Resultado = 'uma baleia com obesidade grau 3, fecha essa boca pelo amor de Deus!';
 	return Resultado;
+
+def CalcularIMC(peso, altura):
+	return peso / (altura * altura);
