@@ -2,18 +2,14 @@ import MyFunctions
 
 MyFunctions.CleanConsole()
 
-print('########################################################');
-print('                 CALCULADORA DE IMC                     ');
-print('########################################################');
+MyFunctions.ShowLogo();
 
-print('');
 peso = MyFunctions.InputFloat('Qual é o seu peso?');
 
 print('');
 altura = MyFunctions.InputFloat('Qual é a sua altura?');
 
 IMC = MyFunctions.CalcularIMC(peso, altura)
-print('');
 
 Resultado = '';
 

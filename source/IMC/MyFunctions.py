@@ -4,11 +4,13 @@ def CleanConsole():
 	os.system('cls' if os.name == 'nt' else 'clear')
 
 def InputFloat(PromptText):
+	print('');
 	valorStr = input(PromptText + '\n');
 	valor = float(valorStr.replace(',', '.'));
 	return valor;
 
 def ShowResult(IMC):
+	print('');
 	if(IMC < 18.5):
    	  Resultado = 'abaixo do peso, esqueletinho!';
 	elif (IMC >= 18.5 and IMC <= 24.9):
@@ -25,3 +27,8 @@ def ShowResult(IMC):
 
 def CalcularIMC(peso, altura):
 	return peso / (altura * altura);
+
+def ShowLogo():
+	print('########################################################');
+	print('                 CALCULADORA DE IMC                     ');
+	print('########################################################');
