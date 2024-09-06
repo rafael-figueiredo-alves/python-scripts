@@ -1,29 +1,29 @@
 from random import randint
-import os
+from functions import ClearConsole, ShowStartMessage, ShowMessageAfterAttempt
 
-os.system('cls' if os.name == 'nt' else 'clear')
+ClearConsole();
+ShowStartMessage();
 
 numero = int(randint(1, 10))
 palpite = 0
 tentativa = 0
-
-print('####### Adivinhe o número que estou pensando de 1 a 10 #######')
-print('')
 
 while palpite != numero:
 
     palpite = int(input('Digite o seu palpite: '))
     tentativa += 1
     if palpite == numero:
-        
+        ClearConsole()
         print('')
         print('Parabéns! Você acertou em ', tentativa, ' tentativas')
     elif palpite < numero:
+        ShowMessageAfterAttempt()
         print('')
         print('Chute um número maior') 
     else:
+        ShowMessageAfterAttempt()
         print('')
         print('Chute um número menor')
-        
-print('')    
-print('####### GAME OVER #######')       
+
+print('');
+print('####### GAME OVER #######');
