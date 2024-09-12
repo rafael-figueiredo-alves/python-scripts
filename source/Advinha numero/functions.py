@@ -10,3 +10,13 @@ def ShowStartMessage():
 def ShowMessageAfterAttempt():
 	ClearConsole()
 	ShowStartMessage()
+
+def ShowVictoryMessage(tentativa):
+		ClearConsole()
+		print('')
+		print('Parabéns! Você acertou em ', tentativa, ' tentativas')
+
+def ShowAttemptErrorMsg(Tipo):
+		ShowMessageAfterAttempt()
+		print('')
+		print('Chute um número', Tipo) 

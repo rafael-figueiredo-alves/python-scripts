@@ -1,5 +1,5 @@
 from random import randint
-from functions import ClearConsole, ShowStartMessage, ShowMessageAfterAttempt
+from functions import ClearConsole, ShowStartMessage, ShowVictoryMessage, ShowAttemptErrorMsg
 
 ClearConsole();
 ShowStartMessage();
@@ -10,20 +10,14 @@ tentativa = 0
 
 while palpite != numero:
 
-    palpite = int(input('Digite o seu palpite: '))
+    palpite = int(input('Digite o seu palpite: \n'))
     tentativa += 1
     if palpite == numero:
-        ClearConsole()
-        print('')
-        print('Parabéns! Você acertou em ', tentativa, ' tentativas')
+        ShowVictoryMessage(tentativa)
     elif palpite < numero:
-        ShowMessageAfterAttempt()
-        print('')
-        print('Chute um número maior') 
+        ShowAttemptErrorMsg('maior')
     else:
-        ShowMessageAfterAttempt()
-        print('')
-        print('Chute um número menor')
+        ShowAttemptErrorMsg('menor')
 
 print('');
 print('####### GAME OVER #######');
