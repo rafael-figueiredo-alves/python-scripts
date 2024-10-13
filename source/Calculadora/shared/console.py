@@ -5,10 +5,17 @@ def ClearConsole():
 
 def PrintAppTitle(title, versao):
 	print("#####################################################################################################")
-	print(f"{title} - versão {versao}")
+	print(f"                               {title} - versão {versao}")
 	print("#####################################################################################################")
-	
+
+def AskToCloseApp():
+	answer = input('\nDeseja realmente finalizar a aplicação? Digite S para confirmar e N para cancelar ação.\n')
+	if(answer.capitalize() == 'S'):
+		CloseApp()
+	else:
+		exit()
+
 def CloseApp():
-	input('\nPressione qualquer tecla para fechar o sistema\n')
 	ClearConsole()
+	exit()
 	
