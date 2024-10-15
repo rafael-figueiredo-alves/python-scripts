@@ -13,7 +13,7 @@ def AskToCloseApp():
 	if(answer.capitalize() == 'S'):
 		CloseApp()
 	else:
-		exit()
+		return True
 
 def CloseApp():
 	ClearConsole()
