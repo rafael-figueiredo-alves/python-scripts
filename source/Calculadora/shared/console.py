@@ -18,4 +18,9 @@ def AskToCloseApp():
 def CloseApp():
 	ClearConsole()
 	exit()
+
+def Calculate(first_arg, second_arg, operator):
+	result = eval(f"{first_arg} {operator} {second_arg}")
+
+	print(f'\nA operação {first_arg} {operator} {second_arg} = {result}\n')
 	
