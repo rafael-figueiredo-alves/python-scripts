@@ -1,9 +1,10 @@
-from functions import ClearConsole, ShowStartMessage, GameThread;
+from gamemainfunction import GameThread;
+from consolehelpers import ClearConsole;
+from gamemessages import ShowStartMessage, ShowGameOverMsg;
 
 ClearConsole();
 ShowStartMessage();
 
 GameThread();
 
-print('');
-print('####### GAME OVER #######');
+ShowGameOverMsg();
