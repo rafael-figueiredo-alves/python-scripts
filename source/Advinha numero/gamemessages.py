@@ -21,3 +21,5 @@ def ShowAttemptErrorMsg(Tipo):
 def ShowGameOverMsg():
 	print('')
 	print('####### GAME OVER #######')
+	input()
+	ClearConsole()
