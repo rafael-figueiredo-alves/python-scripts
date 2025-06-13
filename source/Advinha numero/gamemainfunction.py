@@ -1,8 +1,8 @@
 from random import randint
 from gamemessages import ShowVictoryMessage, ShowAttemptErrorMsg
 
-def GameThread():
-    numero = randint(1, 10)  # 'int()' não é necessário aqui, 'randint' já retorna um inteiro.
+def GameThread(ValorMaximo):
+    numero = randint(1, int(ValorMaximo))  # 'int()' não é necessário aqui, 'randint' já retorna um inteiro.
     palpite = 0
     tentativa = 0
     while palpite != numero:
@@ -12,8 +12,8 @@ def GameThread():
             ShowVictoryMessage(tentativa)
         else:
             if palpite < numero:
-                ShowAttemptErrorMsg('maior')
+                ShowAttemptErrorMsg('maior', ValorMaximo)
             else:
-                ShowAttemptErrorMsg('menor')
+                ShowAttemptErrorMsg('menor', ValorMaximo)
 
         		
