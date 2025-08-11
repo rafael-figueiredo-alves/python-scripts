@@ -8,7 +8,7 @@ while True:
 
     if(resetScreen):
         lib.console.ClearConsole()
-        lib.console.PrintAppTitle("Pergunte-me o que quiser", "0.0.1")
+        lib.console.PrintAppTitle("Pergunte-me o que quiser", "0.0.2")
         resetScreen = False
 
     if(lib.inputs.InputSair()):
