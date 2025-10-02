@@ -25,6 +25,9 @@ labelCount = tk.Label(root, text=f"Valor de número: {numero}")
 labelCount.pack()
 
 buttonMsg = tk.Button(root, text="Mostrar Msg", command=ShowMsg)
-buttonMsg.pack()
+buttonMsg.pack() # coloca componentes um em baixo do outro de forma centralizada
+
+buttonMsg2 = tk.Button(root, text="Mostrar Msg 2", command=ShowMsg)
+buttonMsg2.place(x=150, y=150) # coloca componente nas coordenadas passadas
 
 root.mainloop()
