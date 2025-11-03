@@ -10,7 +10,7 @@ async def root():
 #Este endpoint recebe um nome como parâmetro e retorna uma saudação personalizada
 @app.get("/{name}")
 async def greet(name: str):
-    return {"message": f"Hello, {name}!"}
+    return {"message": f"Hello, {name}! - {type(name)}"}
 
 """
 Este é um exemplo simples de uma aplicação FastAPI com dois endpoints:
