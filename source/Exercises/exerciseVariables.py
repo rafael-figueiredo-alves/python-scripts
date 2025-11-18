@@ -29,3 +29,19 @@ print("Os valores atribuídos são:", valor1, "e", valor2)
 
 valor3, valor4 = (3.5, "mundo")
 print("Os valores atribuídos são:", valor3, "e", valor4)
+
+testeGlobal = 10
+
+def TesteSoma():
+    return testeGlobal * 5
+
+print("O resultado da função TesteSoma é:", TesteSoma())
+
+testeGlobal2 = 5
+
+def TesteSoma2():
+    global testeGlobal2 # Usando a palavra-chave global para modificar a variável global
+    testeGlobal2 += 10
+    return testeGlobal2 * 5
+
+print("O resultado da função TesteSoma é:", TesteSoma2())
