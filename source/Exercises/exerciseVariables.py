@@ -1,3 +1,8 @@
+"""
+Comentários em linhas múltiplas
+Este é um exercício sobre variáveis em Python.
+"""
+
 x = 10
 y = "Hello"
 
