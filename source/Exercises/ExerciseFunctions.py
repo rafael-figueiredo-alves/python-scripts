@@ -156,16 +156,3 @@ def myfunc():
 myfunc()
 
 print(y)
-
-# If you use the nonlocal keyword, the variable will belong to the outer function:
-def outer_function():
-  x = "local"
-  
-  def inner_function():
-    nonlocal x
-    x = "nonlocal"
-    print("Inner:", x)
-  
-
-outer_function()
-print("Outer:", x)
