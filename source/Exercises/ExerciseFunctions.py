@@ -156,3 +156,44 @@ def myfunc():
 myfunc()
 
 print(y)
+
+"""
+As explained in the example above, the variable x is not available outside the function, but it is available for any function inside the function:
+"""
+
+def somaNumbers():
+  z = 500
+  def add():
+    print(z + 5)
+  add()
+  print(z + 10)
+
+somaNumbers()
+
+def outer_function():
+   global outer
+   outer = 10
+   print(outer)
+
+outer_function()
+print(outer + 10)
+
+def function2():
+   m = 15
+   print(m)
+   def function3():
+      nonlocal m
+      m = 25
+      print(m)
+   function3()
+   print(m)
+
+function2()
+
+# Decorators
+
+# Lambda Functions
+
+# Recursion
+
+# Generators
