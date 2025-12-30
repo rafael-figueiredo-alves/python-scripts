@@ -191,9 +191,240 @@ def function2():
 function2()
 
 # Decorators
+def decorator_UpperCase(func):
+    def inner_wrapper(value):
+       return func(value).upper()
+    return inner_wrapper
+
+@decorator_UpperCase
+def greet_decorated(value):
+    return f"Hello, {value}!"
+
+print(greet_decorated("Rafael")) # Should print: HELLO, WORLD!
+
+def log_execution(func):
+    def wrapper(*args, **kwargs):
+        print(f"Executing function: {func.__name__}")
+        result = func(*args, **kwargs)
+        print(f"Function {func.__name__} executed successfully.")
+        return result
+    return wrapper 
+
+@log_execution
+def multiply(a, b):
+    return a * b
+
+print(multiply(4, 5)) # Should print execution logs and the result: 20
+
+def changecase(value):
+   def _Changecase(func):
+      def inner_wrapper(name):
+         if(value == 0):
+          return func(name).upper()
+         else: 
+          return func(name).lower()
+      return inner_wrapper
+   return _Changecase
+
+@changecase(0)  
+def greet_changecase(name):
+   return f"Hello, {name}!"
+
+@changecase(1)  
+def greet_changecase2(name):
+   return f"Hello, {name}!"
+
+print(greet_changecase("Rafael")) # Should print: HELLO, RAFAEL!
+print(greet_changecase2("Rafael")) # Should print: hello, rafael!
+
+"""
+when a function is decorated, the metadata of the original function is lost.
+To preserve the metadata, use the functools.wraps decorator inside the wrapper function.
+"""
+
+def changecase(func):
+  def myinner():
+    return func().upper()
+  return myinner
+
+@changecase
+def myfunction():
+  return "Have a great day!"
+
+print(myfunction.__name__) # Should print: myinner
+
+from functools import wraps
+def changecase(func):
+  @wraps(func)
+  def myinner():
+    return func().upper()
+  return myinner
+@changecase
+def myfunction():
+  return "Have a great day!"
+
+print(myfunction.__name__) # Should print: myfunction
 
 # Lambda Functions
+square = lambda x: x * x  # Returns the square of x
+print(square(6)) # Should print: 36
+
+somaNumeros = lambda a, b: a + b  # Returns the sum of a and b
+print(somaNumeros(10, 15)) # Should print: 25
+
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(2)
+mytripler = myfunc(3)
+
+print(mydoubler(11))
+print(mytripler(11))
+
+numbers = [1, 2, 3, 4, 5]
+doubled = list(map(lambda x: x * 2, numbers))
+print(doubled) # Should print: [2, 4, 6, 8, 10]
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+odd_numbers = list(filter(lambda x: x % 2 != 0, numbers))
+print(odd_numbers) # Should print: [1, 3, 5, 7]
+
+words = ["apple", "pie", "banana", "cherry"]
+sorted_words = sorted(words, key=lambda x: len(x))
+print(sorted_words) # Should print: ['pie', 'apple', 'banana', 'cherry']
 
 # Recursion
+def recursive_factorial(n):
+    """Returns the factorial of a number using recursion."""
+    print(f"Calculating factorial({n})")
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * recursive_factorial(n - 1)
+    
+print(recursive_factorial(5)) # Should print: 120
+
+"""
+Every recursive function must have two parts:
+
+A base case - A condition that stops the recursion
+A recursive case - The function calling itself with a modified argument
+Without a base case, the function would call itself forever, causing a stack overflow error.
+"""
+
+def factorial(n):
+  # Base case
+  if n == 0 or n == 1:
+    return 1
+  # Recursive case
+  else:
+    return n * factorial(n - 1)
+
+print(factorial(5))
+
+def sum_list(numbers):
+  if len(numbers) == 0:
+    return 0
+  else:
+    return numbers[0] + sum_list(numbers[1:])
+
+my_list = [1, 2, 3, 4, 5]
+print(sum_list(my_list)) # Should print: 15
+
+def find_max(numbers):
+  if len(numbers) == 1:
+    return numbers[0]
+  else:
+    max_of_rest = find_max(numbers[1:])
+    return numbers[0] if numbers[0] > max_of_rest else max_of_rest
+
+my_list = [3, 7, 2, 9, 1]
+print(find_max(my_list)) # Should print: 9
+
+import sys
+print(sys.getrecursionlimit()) # Default is usually 1000
+sys.setrecursionlimit(1500) # Set a new recursion limit
+print(sys.getrecursionlimit()) # Should print: 1500
+
+# Increasing the recursion limit should be done with caution. For very deep recursion, consider using iteration instead
 
 # Generators
+
+"""
+Generators are functions that can pause and resume their execution.
+
+When a generator function is called, it returns a generator object, which is an iterator.
+
+The code inside the function is not executed yet, it is only compiled. The function only executes when you iterate over the generator.
+"""
+
+def my_generator():
+  yield 1
+  yield 2
+  yield 3
+
+for value in my_generator():
+  print(value)
+
+def count_up_to(n):
+  count = 1
+  while count <= n:
+    yield count
+    count += 1
+
+for num in count_up_to(5):
+  print(num)
+
+def large_sequence(n):
+  for i in range(n):
+    yield i
+
+# This doesn't create a million numbers in memory
+gen = large_sequence(1000000)
+print(next(gen)) # Should print: 0
+print(next(gen)) # Should print: 1
+print(next(gen)) # Should print: 2
+print(next(gen)) # Should print: 3
+print(next(gen)) # Should print: 4
+print(next(gen)) # Should print: 5
+
+def simple_gen():
+  yield "Emil"
+  yield "Tobias"
+  yield "Linus"
+
+gen = simple_gen()
+print(next(gen))
+print(next(gen))
+print(next(gen))
+
+# List comprehension - creates a list
+list_comp = [x * x for x in range(5)]
+print(list_comp)
+
+# Generator expression - creates a generator
+gen_exp = (x * x for x in range(5))
+print(gen_exp)
+print(list(gen_exp))
+
+def echo_generator():
+  while True:
+    received = yield
+    print("Received:", received)
+
+gen = echo_generator()
+next(gen) # Prime the generator
+gen.send("Hello")
+gen.send("World") #   Should print: Received: World
+
+def my_gen():
+  try:
+    yield 1
+    yield 2
+    yield 3
+  finally:
+    print("Generator closed")
+
+gen = my_gen()
+print(next(gen)) # Should print: 1
+gen.close() # Should print: Generator closed
