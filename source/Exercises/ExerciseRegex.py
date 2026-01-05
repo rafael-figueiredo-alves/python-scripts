@@ -128,3 +128,13 @@ teste = "Teste de metacaracteres: gato, gato123, gato_preto, gato-preto."
 print(encontrar_palavras_com_prefixo(teste, "gato"))  # ['gato', 'gato123', 'gato_preto', 'gato']
 
 print(re.split(r'\s', 'Palavras separadas por espaços'))  # ['Palavras', 'separadas', 'por', 'espaços']
+
+txt = "The rain in Spain"
+x = re.search(r"\bS\w+", txt)
+print(x.span())  # (12, 17)
+print(x.string)  # The rain in Spain
+print(x.group())  # Spain
+print(x.start())  # 12
+print(x.end())    # 17
+print(x.re)      # re.compile('\\bS\\w+')
+
