@@ -1,0 +1,4 @@
+Teste de Leitura de arquivo no Python
+Nova linha
+
+<HTML></HTML>
