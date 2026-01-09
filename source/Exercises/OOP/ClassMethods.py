@@ -33,9 +33,18 @@ class person:
     def is_adult(self):
         return self.age >= 18
     
-    @staticmethod
+    @staticmethod # diferente de classmethod nao recebe a classe como primeiro argumento
     def Inicializar(Nome, Idade):
         return person(Nome, Idade)
+
+    @classmethod
+    def New(cls):
+        return cls("Default Name", 0)
+    
+    @classmethod # obriga a usar a classe como primeiro argumento e nao a instancia
+    def FromString(cls, info_str):
+        name, age = info_str.split(',')
+        return cls(name.strip(), int(age.strip()))
     
 # Example usage:
 p = person("John", 30)
@@ -54,3 +63,9 @@ print(p2.birthday())  # Output: Happy birthday Jailza! You are now 49 years old.
 print(p2.name)  # Output: Jailza
 print(p2.age)   # Output: 49
 print(hasattr(p, 'city'))  # Output: True
+
+p3 = person.New()
+print(p3)  # Output: Person(name=Default Name, age=0)
+
+p4 = person.FromString("Alice, 25")
+print(p4)  # Output: Person(name=Alice, age=25)
